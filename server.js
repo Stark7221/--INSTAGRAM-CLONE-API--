@@ -5,6 +5,9 @@ const cors = require("cors");
 const helmet = require("helmet");
 const authRoutes = require("./routes/auth.routes")
 const followRoutes = require("./routes/follow.routes")
+const postRoutes = require("./routes/post.routes");
+const commentRoutes = require("./routes/comment.routes");
+const userRoutes = require("./routes/user.routes");
 
 const app = express();
 
@@ -18,7 +21,10 @@ app.use(helmet());
 
 
 app.use("/api/auth",authRoutes);
-app.use("/api/users",followRoutes);
+app.use("/api/users", userRoutes); 
+app.use("/api/follow", followRoutes); 
+app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
 
 
 //veritabanı bağlantısı
